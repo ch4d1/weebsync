@@ -4,7 +4,7 @@ import process from "process";
 import socketIoFastify from "fastify-socket.io";
 import staticFastify from "@fastify/static";
 import { Communication } from "./communication";
-import { join } from "path";
+import { resolve } from "path";
 import { init } from "./init";
 import { WeebsyncPlugin } from "./plugin-system";
 
@@ -24,7 +24,10 @@ server.register(socketIoFastify, {
   cors: { origin: "*" },
   transports: ["websocket"],
 });
-server.register(staticFastify, { root: join(__dirname, "client") });
+server.register(staticFastify, {
+  root: resolve(__dirname, "client"),
+  prefix: "/client",
+});
 
 server.get("/", function (req, reply) {
   reply.sendFile("index.html");
