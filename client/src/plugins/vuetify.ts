@@ -1,17 +1,17 @@
 import "@mdi/font/css/materialdesignicons.css";
 import { createVuetify, VuetifyOptions } from "vuetify";
-import { aliases, mdi } from 'vuetify/iconsets/mdi-svg'
+import { aliases, mdi } from "vuetify/iconsets/mdi-svg";
 
 const opts: Partial<VuetifyOptions> = {
   icons: {
-    defaultSet: 'mdi',
+    defaultSet: "mdi",
     aliases,
     sets: {
       mdi,
     },
   },
   theme: {
-    defaultTheme: 'dark',
+    defaultTheme: "dark",
     themes: {
       dark: {
         dark: true,
